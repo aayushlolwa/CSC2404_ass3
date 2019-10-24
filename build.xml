@@ -1,0 +1,49 @@
+<project name="compareShapes" default="clean" basedir=".">
+<description>
+	Application to compare the area of a number of different shapes
+</description>
+
+
+<!-- set global properties for this build -->
+<property name="src" location="."/>
+<property name="build" location="build"/>
+
+
+<target name="initialise">
+	<!-- Create the required directories: /build, /build/lib, /build/classes -->
+	<mkdir dir="${build}/lib"/>
+	<mkdir dir="${build}/classes"/>
+</target>
+
+<target name="compile" depends="initialise" 
+	description="compile the source">
+	<!-- Compile class files from ${src}to ${build}/lib -->
+	<javac srcdir="${src}" destdir="${build}/classes"/>
+</target>
+
+<target name="jar" depends="compile"
+	description="create executable jar">
+	<!--create a JAR with the Main-Class and store file in /lib subdirectory -->
+	<jar jarfile="${build}/lib/mainProgram.jar" basedir="${build}/classes">
+		<manifest>
+		<attribute name="Main-Class" value="TestShape"/>
+		</manifest>
+	</jar> 
+</target>
+
+<target name ="run" depends="jar"
+	description="runs main program">
+	<!--will run mainProgram.jar -->
+	<java jar="${build}/lib/mainProgram.jar" fork="true"/>
+</target>
+
+<target name="clean" depends="run"
+	description="clean up">
+	<!-- Delete ${build} and it's subdirectories-->
+	<delete dir="${build}"/>
+</target>
+
+</project>
+
+
+

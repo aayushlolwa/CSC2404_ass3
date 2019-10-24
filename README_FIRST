@@ -1,0 +1,18 @@
+
+This project is to develop a Java application. 
+The application compares the area of a number 
+of different shapes such as Circles, Squares and 
+Rectangles. 
+
+ The implementation of the application consists of
+    1) Shapes.java -- It is the base class of any shapes
+    2) TestShape.java -- This is the main projram, which 
+       is used to sort them in order of area sizes for a 
+       given number of Shapes and their attrbutes.
+    3) Circle.java -- A derived class, which is to input 
+       the the radius.
+    4) Square.java -- A derived class, which is to input 
+       the side length of the square.
+    5) Rectangle.java -- A derived class, which input the
+       the length of longside and the shortside. 
+
